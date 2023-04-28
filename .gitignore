@@ -1,8 +1,8 @@
 .history
 # /dist
 /node_modules
-.eslintrc.json
-.prettierignore
-.prettierrc.json
-webpack.config.js
+# .eslintrc.json
+# .prettierignore
+# .prettierrc.json
+# webpack.config.js
 old
