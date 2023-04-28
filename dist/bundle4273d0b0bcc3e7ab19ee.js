@@ -996,11 +996,6 @@ const DomElements = () => {
       domRender.buildProjectButton(thisProject);
     });
   }
-  // })
-  //     }
-  //
-  //   });
-  // }
 
   // Task Options
   const allBtn = document.getElementById("allBtn");
@@ -1028,7 +1023,7 @@ const DomElements = () => {
   const clearTaskForm = () => {
     taskTitle.value = "";
     taskDescription.value = "";
-    taskPriority.value = "";
+    taskPriority.value = "medium";
     taskDueDate.value = "";
   };
 
@@ -1139,4 +1134,4 @@ appController();
 
 /******/ })()
 ;
-//# sourceMappingURL=bundlebdb5e9d974c24da5e59a.js.map
+//# sourceMappingURL=bundle4273d0b0bcc3e7ab19ee.js.map

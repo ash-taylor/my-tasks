@@ -154,11 +154,6 @@ const DomElements = () => {
       domRender.buildProjectButton(thisProject);
     });
   }
-  // })
-  //     }
-  //
-  //   });
-  // }
 
   // Task Options
   const allBtn = document.getElementById("allBtn");
@@ -186,7 +181,7 @@ const DomElements = () => {
   const clearTaskForm = () => {
     taskTitle.value = "";
     taskDescription.value = "";
-    taskPriority.value = "";
+    taskPriority.value = "medium";
     taskDueDate.value = "";
   };
 
