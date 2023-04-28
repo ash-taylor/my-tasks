@@ -1,11 +1,8 @@
 export default class Task {
-  #priorityList = [
-    "low",
-    "medium",
-    "high"
-  ];
+  #priorityList = ["low", "medium", "high"];
 
-  constructor(title, priority, complete = false, dueDate = "no date") {
+  constructor(id, title, priority, dueDate, complete = false) {
+    this.id = id;
     this.title = title;
     this.description = null;
     this.priority = this.setPriority(priority);
@@ -13,26 +10,29 @@ export default class Task {
     this.dueDate = dueDate;
   }
 
+  getId() {
+    return this.id;
+  }
+
   setTitle(title) {
     this.title = title;
-  };
+  }
 
   getTitle() {
     return this.title;
-  };
+  }
 
   setDescription(description) {
     this.description = description;
-  };
+  }
 
   getDescription() {
     return this.description;
-  };
+  }
 
   setPriority(priority) {
     if (this.#priorityList.includes(priority)) {
-      this.priority = priority;
-      return true;
+      return priority;
     }
     return null;
   }
@@ -51,4 +51,6 @@ export default class Task {
   getStatus() {
     return this.complete;
   }
-}; 
+
+  getTasks = [];
+}
