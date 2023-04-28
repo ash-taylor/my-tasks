@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+<script defer src="bundlebdb5e9d974c24da5e59a.js"></script></head>
+<body>
+    <div class="new-task-form">
+        <form>
+            <fieldset>
+                <legend>Create a New Task</legend>
+                <label for="task-title">Title:</label>
+                <input type="text" id="tasktitle" name="task-title" autocomplete="off"><br>
+                <label for="task-description">Description:</label>
+                <textarea name="task-description" id="taskdescription" cols="30" rows="10" autocomplete="off"></textarea><br>
+                <label for="task-priority">Priority:</label>
+                <select name="task-priority" id="taskpriority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected="selected">Medium</option>
+                    <option value="high">High</option>
+                </select><br><br>
+                <label for="task-due-date">Due Date:</label>
+                <input type="date" name="task-due-date" id="taskduedate"><br>
+                <div class="form-btns">
+                    <button type="button" id="new-task-form-cancel">Cancel</button>
+                    <button type="submit" id="new-task-form-save">Save</button>
+                </div>
+            </fieldset>            
+        </form>
+    </div>
+
+    <div class="new-project-form">
+        <form>
+            <fieldset>
+                <legend>Create a New Project</legend>
+                <label for="project-title">Project Title:</label>
+                <input type="text" id="projectTitle" name="project-title" autocomplete="off"><br>
+                <div class="form-btns">
+                    <button type="button" id="new-project-form-cancel">Cancel</button>
+                    <button type="submit" id="new-project-form-save">Save</button>
+                </div>
+            </fieldset>            
+        </form>
+    </div>
+    
+
+    <header>
+        <svg xmlns="http://www.w3.org/2000/svg" class="header-logo" viewBox="0 0 512 512"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z"/></svg>
+        <h1>My Tasks</h1>
+        <h1 class="header-selection"></h1>
+    </header>
+    <div class="main-container">
+        <div class="sidebar">
+            <div class="task-options">
+                <button class="task-button" id="allBtn">All</button>
+                <button class="task-button" id="todayBtn">Today</button>
+                <button class="task-button" id="weekBtn">Week</button>
+                <button class="task-button" id="importantBtn">Important</button>
+                <button class="task-button" id="completedBtn">Completed</button>
+                <button class="task-button" id="clearStorage" onclick="(() => {
+                    localStorage.clear(),
+                    location.reload()})();">Clear Local Storage</button>
+            </div>
+            <div class="projects-container">
+                <div class="projects-options">
+                    <h3>Projects <span id=totalProjects></span></h3>
+                    <div id="newProjectBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-add"  viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M256 176v160M336 256H176"/></svg>
+                    </div>
+                </div>                
+                <div class="project-grid">
+                </div>
+            </div>
+        </div>
+        <div class="app-container">
+            <div class="app-grid"></div>
+            <footer>
+            Copyright © 2023 Ash Taylor
+            </footer>
+        </div>
+    </div>    
+</body>
+</html>
