@@ -46,4 +46,10 @@ export default {
     }
     return false;
   },
+
+  loadProjects(projectsArray) {
+    projectsArray.forEach((project) => {
+      this.projects.push(project);
+    });
+  },
 };

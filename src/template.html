@@ -59,6 +59,9 @@
                 <button class="task-button" id="weekBtn">Week</button>
                 <button class="task-button" id="importantBtn">Important</button>
                 <button class="task-button" id="completedBtn">Completed</button>
+                <button class="task-button" id="clearStorage" onclick="(() => {
+                    localStorage.clear(),
+                    location.reload()})();">Clear Local Storage</button>
             </div>
             <div class="projects-container">
                 <div class="projects-options">

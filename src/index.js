@@ -63,6 +63,7 @@ const DomRender = () => {
   // Project Bar
   const projectsGrid = document.querySelector(".project-grid");
   const buildProjectButton = (project) => {
+    console.log(project);
     const projectDiv = document.createElement("div");
     projectDiv.classList.add("project");
     projectDiv.id = project.getId();
@@ -108,6 +109,10 @@ const DomRender = () => {
       projectHandler.deleteProjectById(event.target.id);
       projectsGrid.removeChild(projectDiv);
       clearAppGrid();
+      localStorage.setItem(
+        "Projects",
+        JSON.stringify(projectHandler.getProjects())
+      );
     });
 
     buttonsDiv.appendChild(newIcon);
@@ -126,6 +131,34 @@ const DomRender = () => {
 
 const DomElements = () => {
   const domRender = DomRender();
+
+  const localProjects = JSON.parse(localStorage.getItem("Projects"));
+  if (localProjects) {
+    localProjects.forEach((project) => {
+      const thisProject = projectHandler.createNewProject(
+        project.title,
+        project.id
+      );
+
+      if (project.tasks) {
+        project.tasks.forEach((task) => {
+          const newTask = thisProject.createNewTask(
+            task.id,
+            task.title,
+            task.priority,
+            task.dueDate
+          );
+          newTask.setDescription(task.description);
+        });
+      }
+      domRender.buildProjectButton(thisProject);
+    });
+  }
+  // })
+  //     }
+  //
+  //   });
+  // }
 
   // Task Options
   const allBtn = document.getElementById("allBtn");
@@ -192,6 +225,12 @@ const DomElements = () => {
       const id = `project-${title.replace(/\s/g, "").trim().toLowerCase()}`;
       const project = projectHandler.createNewProject(title, id);
       domRender.buildProjectButton(project);
+      console.log(id);
+      console.log(JSON.stringify(project));
+      localStorage.setItem(
+        "Projects",
+        JSON.stringify(projectHandler.getProjects())
+      );
     });
     // New Task Buttons
     newTaskCancelBtn.addEventListener("click", (event) => {
@@ -225,6 +264,10 @@ const DomElements = () => {
           domRender.buildTaskDiv(newTask);
         }
       });
+      localStorage.setItem(
+        "Projects",
+        JSON.stringify(projectHandler.getProjects())
+      );
       clearTaskForm();
       domRender.toggleNewTaskForm();
     });
@@ -245,6 +288,7 @@ function appController() {
   // init DOM buttons
   const domButtons = DomElements();
   domButtons.addEventListeners();
+  // localStorage.clear();
 }
 
 appController();
